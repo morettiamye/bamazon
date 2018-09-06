@@ -19,7 +19,8 @@
   "dependencies": {
     "inquirer": "^6.2.0",
     "mysql": "^2.16.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "table": "^5.0.2"
   },
   "devDependencies": {},
   "description": ""

@@ -19,45 +19,22 @@ connection.connect(function(err) {
   welcome();
 });
 
-// // Welcome function for purchasing item.
+// // Welcome function 
 function welcome() {
     console.log("Let's shop!");
     // Display Items
-    connection.query("Select * from products", function (err, results) {
-        if (err) throw err;
-    });
-//         // once you have the items, prompt the user for which they'd like to bid on
-//         inquirer
-//             .prompt([
-//                 {
-//                     name: "choice",
-//                     type: "rawlist",
-//                     choices: function () {
-//                         var choiceArray = [];
-//                         for (var i = 0; i < results.length; i++) {
-//                             choiceArray.push(results[i].item_name);
-//                         }
-//                         return choiceArray;
-//                     },
-//                     message: "Which item would you like to purchase?"
+    connection.query("SELECT item_id, product_name, price FROM products", function (err, res) {
+      if (err) throw err;
+  
+      // for loop to log items
+      for (let i = 0; i < res.length; i++) {
+        console.log("ID: " + res[i].item_id + " Product: " + res[i].product_name + " Price: $" + res[i].price);
+        
+      }
+    })
+
 };
 
-            
+          
 
 
-// // function sell{
-// //     // Ask which item to purchase
-// //     inquirer
-// //         .prompt([
-// //             {
-// //                 name: "item id",
-// //                 type: input,
-// //                 message: "What item would you like to purchase?"
-// //             },
-// //             {
-// //                 name: "quantity",
-// //                 type: input,
-// //                 message: "How many would you like to purchase?"
-// //             }
-// //         ]).then()
-// //};
