@@ -63,7 +63,6 @@ function welcome() {
         }]).then(function (input) {
           var purchase = input.buy;
           var itemQuantity = input.quantity;
-          console.log("reading the promise");
 
           // Check inventory and update stock
           connection.query("SELECT * FROM products WHERE ?", {item_id: purchase}, function (err, data) {
